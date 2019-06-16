@@ -1,11 +1,13 @@
 import sys
 import os
 from github import Github
+import ConfigParser
 
-path = "/Users/kalle/Documents/Projects/MyProjects/"
-
-username = "" #Insert your github username here
-password = "" #Insert your github password here
+path = "/Users/wangzelin/Projects/"
+conf = ConfigParser.ConfigParser()
+conf.read('.account')
+username = conf.get('github', 'username')
+password = conf.get('github', 'password')
 
 def create():
     folderName = str(sys.argv[1])
